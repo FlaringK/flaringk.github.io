@@ -22,11 +22,11 @@
       color: white;
 
       opacity: 0;
-      transition: opacity 2s;
+      animation: fadein 5s forward;
     }
 
-    body:hover {
-      opacity: 1;
+    @keyframes fadein {
+      to { opacity: 1;}
     }
   </style>
   
