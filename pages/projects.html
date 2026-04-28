@@ -1,0 +1,97 @@
+<div class="flex flex-reverse">
+
+	<div>
+		<div class="textbox" id="file-explorer">
+			<div class="title">file-explorer.exe</div>
+			<div id="project-files">
+
+			</div>
+		</div>
+	</div>
+
+	<div>
+		<div class="textbox">
+			<div class="title">project-help.txt</div>
+			<div class="options">
+				<div>file</div>
+				<div>format</div>
+				<div>replace</div>
+				<div>view</div>
+			</div>
+			<ol>
+				<li>These are all the projects that I've created since 2018.</li>
+				<li>Some of these are quite old, and others are quite bad.</li>
+				<li></li>
+				<li>The projects that are listed first in each sectiona are the ones I'm most proud of.</li>
+				<li></li>
+				<li>Click on the project you want to view from the project explorer to see a description of it below.</li>
+				<li>Enjoy!</li>
+			</ol>
+		</div>
+		<div class="textbox" id="project-view-wrap">
+			<div class="title">project_view.exe</div>
+			<div id="project-views">
+				
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<style>
+
+	#project-files {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
+
+		max-height: 80vh;
+		overflow-y: scroll;
+		padding: 1em;
+
+		.file {
+			width: 150px;
+			text-align: center;
+			padding: 1em;
+			box-sizing: border-box;
+
+			&:hover, &.file-selected {
+				background-color: var(--backing);
+			}
+		}
+
+		.file-icon {
+			aspect-ratio: 1 / 1;
+		}
+
+		.file-header {
+			width: 100%;
+			border-bottom: var(--accent) solid;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+			display: block;
+			margin: auto;
+		}
+	}
+
+	#project-views {
+		display: flex;
+
+		& > * {
+			display: block;
+		}
+
+		& > a {
+			padding: 2em;
+			max-width: 50%;
+		}
+
+		a {
+			color: white;
+		}
+	}
+
+</style>

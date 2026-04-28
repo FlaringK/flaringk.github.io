@@ -1,0 +1,398 @@
+/* // <weight>: Use a value from 400 to 900
+// <uniquifier>: Use a unique and descriptive class name
+
+.orbitron-<uniquifier> {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+/* .ubuntu-mono-regular {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ubuntu-mono-bold {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.ubuntu-mono-regular-italic {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.ubuntu-mono-bold-italic {
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+} */
+
+:root {
+	--move-time: .2s;
+
+	--dirx: 1;
+	--diry: 1;
+
+	--backing: #224;
+	--backing2: black;
+}
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+	background-color: var(--backing);
+	/* background-image: linear-gradient(0deg, var(--backing), var(--backing2)); */
+	min-height: 100vh;
+	font-size: 18px;
+}
+
+#main {
+	
+}
+
+.home {
+	--accent: cyan;
+	--dirx: 1;
+	--diry: 1;
+}
+
+.commissions {
+	--accent: magenta;
+	--dirx: -1;
+	--diry: 1;
+}
+
+.projects {
+	--accent: lime;
+	--dirx: 1;
+	--diry: -1;
+}
+
+.contact {
+	--accent: yellow;
+	--dirx: -1;
+	--diry: -1;
+}
+
+/* BACKGROUND */
+
+#background {
+	font-family: "Orbitron", sans-serif;
+	position: fixed;
+	inset: 0;
+	z-index: -100;
+
+}
+
+#site-bar {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	top: 0;
+
+	width: 100px;
+	line-height: 150px;
+	overflow: hidden;
+	padding-top: 1em;
+
+	transition: background-color var(--move-time);
+	background-color: var(--accent);
+
+	font-family: "Orbitron", sans-serif;
+	color: var(--backing);
+
+	#social-links a {
+		display: block;
+		margin: .5em 1.5em;
+		transition: all .25s;
+
+		&:hover { scale: 1.1; }
+
+		img {
+			display: block;
+		}
+	}
+
+	img {
+		fill: var(--accent);
+	}
+
+	#site-name {
+		position: absolute;
+		bottom: 0;
+
+		text-orientation: mixed;
+		writing-mode: vertical-rl; 
+
+		font-size: 120px;
+		font-weight: 900;
+		font-style: italic;
+		text-transform: uppercase;
+		transform: scale(-1);
+	}
+}
+
+
+#backing {
+	--grid-size: 10em;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	opacity: 0.5;
+	background-image: linear-gradient(var(--accent) .1em, transparent .1em), linear-gradient(90deg, var(--accent) .1em, transparent .1em);
+	background-size: var(--grid-size) var(--grid-size);
+
+	animation: scroll 15s linear infinite;
+	transition: background-position var(--move-time);
+}
+
+@keyframes scroll {
+	100% {
+		background-position: calc(var(--grid-size) * var(--dirx)) calc(var(--grid-size) * var(--diry));
+	}
+}
+
+/* NAV */
+
+#nav-wrap {
+	position: sticky;
+	top: 0;
+}
+
+nav {
+	font-family: "Orbitron", sans-serif;
+	font-size: 50px;
+
+	display: flex;
+	justify-content: space-between;
+	padding-left: 100px;
+}
+
+nav div {
+	text-align: center;
+
+	flex-grow: 0;
+	font-weight: 400;
+
+	transition: flex-grow var(--move-time), font-weight var(--move-time);
+}
+
+nav a {
+	display: inline-block;
+	transform-origin: 50% 0;
+	scale: 1;
+	transition: scale var(--move-time), color var(--move-time);
+	color: white;
+	text-decoration: none;
+
+	animation: pulse 4s infinite;
+}
+
+nav div:nth-child(1) a { animation-delay: 0s; }
+nav div:nth-child(2) a { animation-delay: 1s; }
+nav div:nth-child(3) a { animation-delay: 2s; }
+nav div:nth-child(4) a { animation-delay: 3s; }
+
+nav a:hover {
+	animation: none;
+	text-shadow: 0 .075em 0 var(--accent);
+	opacity: 1 !important;
+}
+
+.active {
+	text-transform: uppercase;
+	flex-grow: 1;
+	font-weight: 900;
+	z-index: -10;
+}
+
+.active a {
+	color: var(--accent);
+	scale: 1.5;
+	text-shadow: none !important;
+	animation: none;
+}
+
+@keyframes pulse {
+	0% { text-shadow: 0 0 0 var(--accent); }
+	10% { text-shadow: 0 .075em 0 var(--accent); }
+	20% { text-shadow: 0 0 0 var(--accent); }
+}
+
+/* CONTENT */
+
+#content {
+	margin-left: 100px;
+	color: white;
+  	font-family: "Ubuntu Mono", monospace;
+	padding: 2em;
+}
+
+.flex {
+	display: flex;
+	gap: 2em;
+
+	& > div {
+		flex-grow: 1;
+		max-width: 50%;
+	}
+}
+
+.textbox {
+	background-color: black;
+	border: var(--accent) solid;
+	transition: all .15s ease-in;
+
+	@starting-style {
+		transform: translate(-100%, -20%) scale(0);
+	}
+
+	& + .textbox {
+		margin-top: 2em;
+	}
+
+	a {
+		color: var(--accent)
+	}
+
+	img {
+		max-width: 100%;
+		display: block;
+	}
+
+	.title {
+		border-bottom: var(--accent) solid;
+		font-weight: 700;
+		color: #aaa;
+	}
+	
+	.options {
+		display: flex;
+		border-bottom: var(--accent) solid;
+		color: #aaa;
+		
+		& div {
+			border-right: var(--accent) solid;
+			padding: 0 1em;
+		}
+	}
+
+	ol {
+		list-style-type: none;
+		margin: 0;
+		padding-left: 1.5em;
+
+		--prefix: " ";
+
+		li {
+			position: relative;
+		}
+
+		li::before {
+			content: var(--count);
+			display: inline-block;
+			margin-left: -1.5em;
+			margin-right: .5em;
+			width: 1em;
+			text-align: right;
+			color: #aaa;
+		}
+
+		li::after {
+			content: var(--prefix);
+			position: absolute;
+			top: 0;
+			left: -1.5em;
+			width: 1.5em;
+			text-align: left;
+			color: #aaa;
+		}
+	}
+}
+
+li:nth-child(10n + 10) { --count: "0"; }
+li:nth-child(10n + 1) { --count: "1"; }
+li:nth-child(10n + 2) { --count: "2"; }
+li:nth-child(10n + 3) { --count: "3"; }
+li:nth-child(10n + 4) { --count: "4"; }
+li:nth-child(10n + 5) { --count: "5"; }
+li:nth-child(10n + 6) { --count: "6"; }
+li:nth-child(10n + 7) { --count: "7"; }
+li:nth-child(10n + 8) { --count: "8"; }
+li:nth-child(10n + 9) { --count: "9"; }
+li:nth-child(n + 10) { --prefix: "1"; }
+
+h1 {
+	font-weight: 700;
+	font-style: italic;
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		backdrop-filter: invert(1);
+		transition: right 1s .5s;
+		animation: header-pulse 15s infinite;
+		transform: skew(-15deg);
+		pointer-events: none;
+
+		@starting-style {
+			right: 100%;
+		}
+	}
+}
+
+@keyframes header-pulse {
+	0% { right: 5% }
+	50% { right: 0% }
+	100% { right: 5% }
+}
+
+@media (max-width: 1150px) {
+	
+	#site-bar {
+		display: none;
+	}
+
+	#content {
+		margin-left: 0;
+		padding: 1em;
+	}
+
+	#nav-wrap {
+		position: relative;
+	}
+
+	nav {
+		padding-left: 0;
+		flex-wrap: wrap;
+	}
+
+	.active a {
+		scale: 1;
+	}
+
+	.flex {
+		flex-wrap: wrap;
+
+		& > div {
+			flex-grow: 1;
+			max-width: 100%;
+		}
+	}
+
+	.flex-reverse {
+		flex-wrap: wrap-reverse;
+	}
+
+}
