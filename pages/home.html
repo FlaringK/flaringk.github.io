@@ -34,6 +34,10 @@
 				<li>Lori drawn by <a href="https://junebugjamboree.neocities.org/" target="_blank">JuneBug</a></li>
 			</ol>
 		</div>
+
+		<div style="--accent: magenta" class="home-link"><a href="/?page=commissions" class="pageLink">> Commissions</a></div>
+		<div style="--accent: lime" class="home-link"><a href="/?page=projects" class="pageLink">> Projects</a></div>
+		<div style="--accent: yellow" class="home-link"><a href="/?page=contact" class="pageLink">> Contacts</a></div>
 	</div>
 	<div>
 		<div class="textbox">
@@ -50,3 +54,22 @@
 
 </div>
 
+<style>
+
+	.home-link {
+		background-color: var(--accent);
+		margin-top: 1em;
+		font-size: 2em;
+		transform: skew(-5deg);
+
+		a {
+			color: black;
+			text-decoration: none;
+
+			&:hover {
+				font-weight: bold;
+			}
+		}
+	}
+
+</style>
