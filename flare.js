@@ -96,3 +96,7 @@ const clickLink = (event, link) => {
 document.querySelectorAll(".pageLink").forEach(a => { a.addEventListener("click", evt => clickLink(evt, a.href)) })
 
 loadPage()
+
+window.addEventListener("popstate", function (e) {
+    window.location.reload();
+});
