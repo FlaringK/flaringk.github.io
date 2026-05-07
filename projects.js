@@ -1,15 +1,21 @@
 let websites = [
 	{
-		title: "SAHCon.com",
-		description: "The landing page for the Stuck At Home Convention, a virtual homestuck convention held in VR and across the internet.",
-		link: "https://sahcon.neocities.org/",
-		icon: "webIcons/sahcon.png",
-	},
-	{
 		title: "CHORDIOID",
 		description: "A rhythm RPG where you battle to the beat. CHORDIOID is a unique musical JRPG that seamlessly blends turn-based combat with rhythm game mechanics.",
 		link: "https://chordioid.com/",
 		icon: "webIcons/cd.png",
+	},
+	{
+		title: "Time Archer Studios",
+		description: "Time Archer Studios is a small multi-media production studio focused on animations and other creative projects. We put creatives first by ensuring our partners have full control of the whimsical and diverse stories they want to tell. Proudly queer and disabled owned!",
+		link: "https://timeacher.neocities.org/",
+		icon: "webIcons/timearcher_logo_outlined_MINI.png",
+	},
+	{
+		title: "SAHCon.com",
+		description: "The landing page for the Stuck At Home Convention, a virtual homestuck convention held in VR and across the internet.",
+		link: "https://sahcon.neocities.org/",
+		icon: "webIcons/sahcon.png",
 	},
 	{
 		title: "JARI: Grimdorks",

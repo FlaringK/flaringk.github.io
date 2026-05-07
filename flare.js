@@ -82,8 +82,6 @@ const loadProjectPreview = file => {
 	
 	`
 
-	
-
 }
 
 const clickLink = (event, link) => {
